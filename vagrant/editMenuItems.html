@@ -1,0 +1,22 @@
+<html>
+<body>
+	<p><b>Edit MenuItem '{{all_menus.name}}' for Restaurant '{{rest_name}}'</b></p>
+
+		<form action='{{url_for('editMenuItem',restaurant_id=restaurant_id,menu_id=menu_id)}}' method ='POST'>
+			Name: <input type='text' name='menu_name' placeholder='{{all_menus.name}}'/><br><br>
+			Description: <input type='textarea' name='menu_description' maxlength='50' placeholder='{{all_menus.description}}'/><br><br>
+			Price: <input type='price' name='menu_price' placeholder='{{all_menus.price}}'/><br><br>
+			Course: <br>
+			{%for i in all_courses%}
+				{%if(i.name!=all_menus.course)%}
+					<input type='radio' name='menu_course' value='{{i.name}}'>{{i.name}}<br>
+				{%elif(i.name==all_menus.course)%}
+					<input type='radio' name='menu_course' value='{{i.name}}' checked="checked">{{i.name}}<br>
+				{%endif%}
+			{%endfor%}
+			<br><br>
+			<input type='submit' value='Edit'/>
+			<a href='{{url_for('showMenu',restaurant_id=restaurant_id)}}'>Back</a>
+		</form>
+</body>
+</html>

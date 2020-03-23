@@ -1,0 +1,9 @@
+<html>
+<body>
+	<h2>Delete Restaurant {{rest_name}}<h2>
+	<form action='{{url_for('deleteRestaurant',restaurant_id=rest_id)}}' method='POST'>
+		<input type ='submit' value='Delete'>
+	</form>
+	<h5><a href='{{url_for('showRestaurants')}}'>Cancel</a><h5>
+</body>
+</html>

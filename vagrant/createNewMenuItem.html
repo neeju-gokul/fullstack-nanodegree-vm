@@ -1,0 +1,17 @@
+<html>
+<body>
+	<p><b>Create New MenuItem for Restaurant '{{rest_name}}'</b></p>
+ 
+		<form action='{{url_for('newMenuItem',restaurant_id=restaurant_id)}}' method ='POST'>
+			Name: <input type='text' name='menu_name'><br><br>
+			Description: <input type='textarea' name='menu_description' maxlength='50'><br><br>
+			Price: <input type='price' name='menu_price'><br><br>
+			Course: <br>
+			{%for i in all_courses%}
+				<input type='radio' name='menu_course' value='{{i.name}}'>{{i.name}}<br>
+			{%endfor%}
+			<br><br>
+			<input type='submit' value='Create'/>
+			<a href='{{url_for('showMenu',restaurant_id=restaurant_id)}}'>Back</a>
+</body>
+</html>
